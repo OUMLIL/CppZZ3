@@ -1,4 +1,4 @@
-# Install script for directory: /home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3
+# Install script for directory: /home/donzy/mydesk/ZZ3/CppZZ3/tp1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/donzy/mydesk/ZZ3/CppZZ3/tp1/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

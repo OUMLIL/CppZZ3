@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tp1_point.dir/src/main_point.cpp.o"
+  "CMakeFiles/tp1_point.dir/src/main_point.cpp.o.d"
   "CMakeFiles/tp1_point.dir/src/utils.cpp.o"
+  "CMakeFiles/tp1_point.dir/src/utils.cpp.o.d"
   "tp1_point"
   "tp1_point.pdb"
 )

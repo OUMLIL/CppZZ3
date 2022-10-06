@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+#directories
+tp1/build/*
+tp1/test/*
+tp1/CMakeLists.txt

@@ -1,18 +1,16 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3/src/utils.cpp" "/home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3/build/CMakeFiles/tp1_test.dir/src/utils.cpp.o"
-  "/home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3/test/catch.cpp" "/home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3/build/CMakeFiles/tp1_test.dir/test/catch.cpp.o"
-  "/home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3/test/tp1_test.cpp" "/home/local.isima.fr/aboumil/shared/CppZZ3/CppZZ3/build/CMakeFiles/tp1_test.dir/test/tp1_test.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../src"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/donzy/mydesk/ZZ3/CppZZ3/tp1/src/utils.cpp" "CMakeFiles/tp1_test.dir/src/utils.cpp.o" "gcc" "CMakeFiles/tp1_test.dir/src/utils.cpp.o.d"
+  "/home/donzy/mydesk/ZZ3/CppZZ3/tp1/test/catch.cpp" "CMakeFiles/tp1_test.dir/test/catch.cpp.o" "gcc" "CMakeFiles/tp1_test.dir/test/catch.cpp.o.d"
+  "/home/donzy/mydesk/ZZ3/CppZZ3/tp1/test/tp1_test.cpp" "CMakeFiles/tp1_test.dir/test/tp1_test.cpp.o" "gcc" "CMakeFiles/tp1_test.dir/test/tp1_test.cpp.o.d"
   )
 
 # Targets to which this target links.

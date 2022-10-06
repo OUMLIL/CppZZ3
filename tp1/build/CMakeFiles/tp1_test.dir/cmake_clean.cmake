@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tp1_test.dir/src/utils.cpp.o"
+  "CMakeFiles/tp1_test.dir/src/utils.cpp.o.d"
   "CMakeFiles/tp1_test.dir/test/catch.cpp.o"
+  "CMakeFiles/tp1_test.dir/test/catch.cpp.o.d"
   "CMakeFiles/tp1_test.dir/test/tp1_test.cpp.o"
+  "CMakeFiles/tp1_test.dir/test/tp1_test.cpp.o.d"
   "tp1_test"
   "tp1_test.pdb"
 )
