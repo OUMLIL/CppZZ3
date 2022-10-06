@@ -12,6 +12,8 @@
 
 ########################
 # EXTERNAL cache entries
+
+# added this text to test git ignore
 ########################
 
 //Path to a program.
