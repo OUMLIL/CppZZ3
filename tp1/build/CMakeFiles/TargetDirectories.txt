@@ -1,5 +1,0 @@
-/home/donzy/mydesk/ZZ3/CppZZ3/tp1/build/CMakeFiles/tp1_point.dir
-/home/donzy/mydesk/ZZ3/CppZZ3/tp1/build/CMakeFiles/tp1_vecteur.dir
-/home/donzy/mydesk/ZZ3/CppZZ3/tp1/build/CMakeFiles/tp1_test.dir
-/home/donzy/mydesk/ZZ3/CppZZ3/tp1/build/CMakeFiles/edit_cache.dir
-/home/donzy/mydesk/ZZ3/CppZZ3/tp1/build/CMakeFiles/rebuild_cache.dir
