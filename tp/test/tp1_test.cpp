@@ -3,10 +3,10 @@
 #include <sstream>
 #include <typeinfo>
 
-#include <Cartesien.hpp>
-#include <Polaire.hpp>
+#include <cartesien.hpp>
+#include <polaire.hpp>
 #include <utils.hpp>
-#include <Nuage.hpp>
+#include <nuage.hpp>
 #include <vecteur.hpp>
 
 // Tests //-----------------------------------------------------------------------------------------
@@ -355,14 +355,12 @@ TEST_CASE ("Vecteur1") {
   REQUIRE ( v.size()     == 0  );
 }
 
-
 TEST_CASE ("Vecteur2" ) {
   vecteur v(20);
  
   REQUIRE ( v.capacity() == 20 );
   REQUIRE ( v.size()     == 0  );
 }
-
 
 TEST_CASE ("Vecteur3" ) {
   vecteur v(5);
@@ -399,6 +397,10 @@ TEST_CASE ("Vecteur3" ) {
     for(double x : v) {
      CHECK(x == Approx(x*1.0));  // :-)
     }
+
+    SECTION("on verifie les exceptions") {
+      REQUIRE_THROWS_AS( v[-1] == 0,  vecteur::OutOfRangeException ); 
+    }
   }
 }
 
@@ -424,9 +426,22 @@ TEST_CASE("Vecteur4") {
      CHECK(e == Approx(e*1.0));  // :-)
     }
   }
+
+  SECTION("operateur <<") {
+    std::stringstream ss;
+    ss << v;
+    CHECK(ss.str() == "0 1 2 3 4 5 6 7 8 9 ");
+  }
 }
 
-//   SECTION("on verifie les exceptions") {
-//     REQUIRE_THROWS_AS( v[-1] == 0, const vecteur::OutOfRangeException &); 
-//     REQUIRE_THROWS_AS( v [6] == 0, const vecteur::OutOfRangeException &);  // :-)
-//    }
+TEST_CASE("Vecteur 5") {
+  vecteur v;
+  for (int i=0; i<10; ++i)
+      v.push_back(i*1.0);
+  
+  SECTION("[] lecture seul") {
+    CHECK(v[2] == 2);
+    v[2]++;
+    CHECK(v[2] == 3);
+  }
+}

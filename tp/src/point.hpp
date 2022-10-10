@@ -19,13 +19,4 @@ class Point {
         
         virtual void convertir(Polaire & p) const = 0;
         virtual void convertir(Cartesien & c) const = 0;
-
-        virtual double getX() const {
-            return 0;
-        }
-        virtual double getY() const {
-            return 0;
-        }
-
-        //add two fonctions here Point should know Cartesian and Polar
 };

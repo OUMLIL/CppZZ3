@@ -1,9 +1,9 @@
 #pragma once
 
 //Operator overloading
-#include "Point.hpp"
+#include "point.hpp"
 #include "iostream"
 #include "sstream"
-#include "Nuage.hpp"
+#include "nuage.hpp"
 
 std::ostream & operator<<(std::stringstream & ss, const Point & p);

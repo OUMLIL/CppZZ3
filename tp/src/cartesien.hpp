@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Point.hpp"
+#include "point.hpp"
 #include <sstream>
 #include <iostream>
 #include <math.h>
@@ -18,11 +18,11 @@ class Cartesien : public Point {
         }
 
         //getters
-        double getX() const override {
+        double getX() const {
             return _x;
         }
 
-        double getY() const override {
+        double getY() const {
             return _y;
         }
         

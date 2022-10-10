@@ -1,6 +1,6 @@
-#include "Cartesien.hpp"
-#include "Point.hpp"
-#include "Polaire.hpp"
+#include "cartesien.hpp"
+#include "point.hpp"
+#include "polaire.hpp"
 
 Cartesien::Cartesien(Polaire & p) {
     p.convertir(*this);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Point.hpp"
+#include "point.hpp"
 #include <sstream>
 #include <iostream> //->s iosfwd forward declarations
 #include <cmath>

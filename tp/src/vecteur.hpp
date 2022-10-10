@@ -13,10 +13,10 @@ class vecteur {
         void alloc(int capacite) {
             if(capacite) {
                 try {
-                _array = new int[capacite];
+                    _array = new int[capacite];
                 } catch(std::bad_alloc &e) {
                     e.what();
-                    //delete[] _array;
+                    delete[] _array;
                     _capacity = -1;
                     _nbelements = 0;
                     _array = nullptr;
@@ -41,8 +41,18 @@ class vecteur {
         
         //destructeur 
         ~vecteur() {
-            delete [] _array;
+            delete[] _array;
         }
+
+         //exception
+        class OutOfRangeException : public std::out_of_range {
+            public:
+                OutOfRangeException(std::string s=""): std::out_of_range(s){};
+                const char * what() const noexcept {
+                    const char * err = "out of range exception";
+                    return err;
+                }
+        };
 
         //operateur copie
         vecteur & operator=(const vecteur & v) {
@@ -66,21 +76,20 @@ class vecteur {
 
 
         //operateurs
-        int const & operator[](int id) const {
+            //lecture
+        int operator[](int id) const {
+            if(id < 0 || id > _nbelements) {
+                throw OutOfRangeException();
+            } 
+            return _array[id];
+        }   
+            //lecture_ecriture
+        int & operator[](int id) {
             if(id < 0 || id > _nbelements) {
                 throw OutOfRangeException();
             } 
             return _array[id];
         }
-
-
-        //exception
-        class OutOfRangeException : public std::exception {
-            const char * what() const noexcept {
-                const char * err = "out of range exception";
-                return err;
-            }
-        };
 
         //begin, end
         const int * begin() const {
@@ -108,6 +117,7 @@ class vecteur {
                 //exception ?? //alloc ok ??
                 int * tmp = new int[2*_capacity];
                 std::copy(begin(), end(), tmp);
+                delete[] _array;
                 _array = static_cast<int*>(tmp);
                 _capacity = _capacity * 2;
             }
@@ -116,3 +126,5 @@ class vecteur {
         }
 
 };
+
+std::ostream & operator<<(std::ostream & ss, const vecteur & v);

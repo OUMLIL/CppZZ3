@@ -1,6 +1,6 @@
-#include "Point.hpp"
-#include "Polaire.hpp"
-#include "Cartesien.hpp"
+#include "point.hpp"
+#include "polaire.hpp"
+#include "cartesien.hpp"
 
 
 

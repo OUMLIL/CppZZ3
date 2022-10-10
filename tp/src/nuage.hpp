@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Point.hpp"
+#include "point.hpp"
 #include <vector>
 #include <iterator>
-#include "Cartesien.hpp"
-#include "Polaire.hpp"
+#include "cartesien.hpp"
+#include "polaire.hpp"
 
 class Nuage {
     private:
@@ -13,8 +13,13 @@ class Nuage {
 
         class const_iterator {
             private:
+
+                // using C = decltype(points);
+                // using I = C::iterator;
                 std::vector<Point *>::iterator _ptr;
             public:
+                // using value_type = I::value_type;
+
                 const_iterator(std::vector<Point *>::iterator p): _ptr(p){
                 }
 
@@ -56,13 +61,15 @@ class Nuage {
 
         const_iterator end() {
             return const_iterator(points.end());
-        }
+        }   
 
         friend Cartesien barycentre(Nuage & n) {
             double sumX = 0, sumY = 0;
             for(Point * p : n) {
-                sumX += p->getX();
-                sumY += p->getY();
+                Cartesien c;
+                p->convertir(c);
+                sumX += c.getX();
+                sumY += c.getY();
             }
             Cartesien c(sumX/n.size(), sumY/n.size());
             return c;
@@ -73,12 +80,7 @@ class BarycentreCartesien {
 
     public:
         Cartesien operator()(Nuage & n) {
-            double sumX = 0, sumY = 0;
-            for(Point * p : n) {
-                sumX += p->getX();
-                sumY += p->getY();
-            }
-            Cartesien c(sumX/n.size(), sumY/n.size());
+            Cartesien c = barycentre(n);
             return c;
         }
 
