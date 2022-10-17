@@ -430,18 +430,46 @@ TEST_CASE("Vecteur4") {
   SECTION("operateur <<") {
     std::stringstream ss;
     ss << v;
-    CHECK(ss.str() == "0 1 2 3 4 5 6 7 8 9 ");
+    CHECK(ss.str() == "0 1 2 3 4 5 6 7 8 9");
+  }
+
+  SECTION("operateur << vecteur vide") {
+    std::stringstream ss;
+    vecteur x;
+    ss << x;
+    CHECK(ss.str() == "");
   }
 }
 
 TEST_CASE("Vecteur 5") {
   vecteur v;
-  for (int i=0; i<10; ++i)
+  for (int i=0; i<5; ++i) //0 1 2 3 4
       v.push_back(i*1.0);
   
-  SECTION("[] lecture seul") {
-    CHECK(v[2] == 2);
-    v[2]++;
-    CHECK(v[2] == 3);
+  vecteur v2;
+  for (int i=5; i<8; ++i) //5 6 7
+    v2.push_back(i*1.0);
+  
+  SECTION("Concatenation +") { 
+    std::stringstream ss;
+    vecteur v3 = v + v2; //0 1 2 3 4 5 6 7
+    ss << v3;
+    CHECK(ss.str() == "0 1 2 3 4 5 6 7");
+
+    vecteur v4 = v + v3; //0 1 2 3 4 0 1 2 3 4 5 6 7
+    ss.str("");
+    ss << v4;
+    CHECK(ss.str() == "0 1 2 3 4 0 1 2 3 4 5 6 7");
+  }
+
+  SECTION("Produit scalaire") {
+    vecteur v4;
+    vecteur v5;
+    for (int i=1; i<4; ++i){
+      v4.push_back(i*1.0);
+      v5.push_back(i*1.0);
+    }
+    int r = v4 * v5;
+    CHECK(r == (1*1) + (2*2) + (3*3));
   }
 }

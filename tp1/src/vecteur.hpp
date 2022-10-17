@@ -6,7 +6,7 @@
 class vecteur {
 
     private:
-        int _capacity{-1};
+        int _capacity{-1}; 
         int _nbelements{0};
         int * _array{nullptr};
 
@@ -124,7 +124,8 @@ class vecteur {
             _array[_nbelements] = element;
             _nbelements++;
         }
-
+    friend vecteur operator+(vecteur & v1, vecteur & v2);
+    friend int operator*(const vecteur & v1, const vecteur & v2);
 };
 
 std::ostream & operator<<(std::ostream & ss, const vecteur & v);
