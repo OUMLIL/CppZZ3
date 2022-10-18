@@ -2,7 +2,7 @@
 #include <vector>
 #include <typeinfo>
 
-template <typename T>
+template <typename T, >
 class Nuage {
     
     private:
@@ -64,3 +64,18 @@ T barycentre_v1(const Nuage<T> & n) {
 
     return T(Cartesien(sumX, sumY));
 } 
+
+template <>
+Polaire barycentre_v1(const Nuage<Polaire> & n) {
+    double sumAngle = 0, sumDist = 0;
+    if(n.size() != 0) {
+        for(Polaire p : n) {
+            sumAngle += p.getAngle();
+            sumDist  += p.getDistance();
+        }
+        sumAngle = sumAngle / n.size();
+        sumDist  = sumDist / n.size();
+    }
+
+    return Polaire(sumAngle, sumDist);
+}
