@@ -2,18 +2,19 @@
 #include <vector>
 #include <typeinfo>
 
-template <typename T, >
+template <typename point_type>
 class Nuage {
     
     private:
-        std::vector<T> _nuage;
+        std::vector<point_type> _nuage;
+
     public:
 
-        using const_iterator = typename std::vector<T>::const_iterator;
+        using const_iterator = typename std::vector<point_type>::const_iterator;
         
         Nuage() = default;
 
-        void ajouter(const T element);
+        void ajouter(const point_type element);
         size_t size() const;
         
         //iterator
@@ -24,32 +25,32 @@ class Nuage {
 };
 
 
-template <typename T>
-typename Nuage<T>::const_iterator Nuage<T>::begin() const {
+template <typename point_type>
+typename Nuage<point_type>::const_iterator Nuage<point_type>::begin() const {
     return _nuage.begin();
 }
 
-template <typename T>
-typename Nuage<T>::const_iterator Nuage<T>::end() const {
+template <typename point_type>
+typename Nuage<point_type>::const_iterator Nuage<point_type>::end() const {
     return _nuage.end();
 }
 
-template <typename T>
-void Nuage<T>::ajouter(const T element) {
+template <typename point_type>
+void Nuage<point_type>::ajouter(const point_type element) {
     _nuage.push_back(element);
 }
 
-template <typename T>
-size_t Nuage<T>::size() const{
+template <typename point_type>
+size_t Nuage<point_type>::size() const{
     return _nuage.size();
 }
 
-template <typename T>
-T barycentre_v1(const Nuage<T> & n) {
+template <typename point_type>
+point_type barycentre_v1(const Nuage<point_type> & n) {
     double sumX = 0, sumY = 0;
 
     if(n.size() != 0) {
-        for(T p : n) {
+        for(point_type p : n) {
  
             Cartesien c;
             p.convertir(c); //convertir en cartesien
@@ -62,8 +63,9 @@ T barycentre_v1(const Nuage<T> & n) {
         sumY = sumY/n.size(); 
     }
 
-    return T(Cartesien(sumX, sumY));
+    return point_type(Cartesien(sumX, sumY));
 } 
+
 
 template <>
 Polaire barycentre_v1(const Nuage<Polaire> & n) {
@@ -79,3 +81,25 @@ Polaire barycentre_v1(const Nuage<Polaire> & n) {
 
     return Polaire(sumAngle, sumDist);
 }
+
+
+template<template<typename ...> class Container, 
+        typename Point>
+Point barycentre_v2(const Container<Point> & n) {
+    double sumX = 0, sumY = 0;
+    if(n.size() != 0) {
+        for(Point p : n) {
+ 
+            Cartesien c;
+            p.convertir(c); //convertir en cartesien
+
+            sumX += c.getX();
+            sumY += c.getY();
+        }
+        //calcul barycentre cartesien
+        sumX = sumX/n.size();
+        sumY = sumY/n.size(); 
+    }
+    return Point(Cartesien(sumX, sumY));
+}
+

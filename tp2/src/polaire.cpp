@@ -14,6 +14,6 @@ void Polaire::convertir(Cartesien & c) const {
     double y = _dist * std::sin(_angle * (M_PI/180));
     std::cout << "polaire -> cartesien" << std::endl;
     c.setX(x);
-    c.setY(y);    
+    c.setY(y);
 }
 
