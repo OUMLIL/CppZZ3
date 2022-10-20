@@ -9,6 +9,7 @@ class Nuage {
         std::vector<point_type> _nuage;
 
     public:
+        using value_type     = typename std::vector<point_type>::value_type;
 
         using const_iterator = typename std::vector<point_type>::const_iterator;
         
@@ -83,12 +84,40 @@ Polaire barycentre_v1(const Nuage<Polaire> & n) {
 }
 
 
-template<template<typename ...> class Container, 
-        typename Point>
-Point barycentre_v2(const Container<Point> & n) {
+// template <  typename value_type, //Polaire - Cartesien
+//             template <typename T, typename A> class Container = std::vector, //Conteneur
+//             typename alloc_t = std::allocator<value_type>>
+
+
+// value_type barycentre_v2(const Container<value_type, alloc_t> & n) {
+//     double sumX = 0, sumY = 0;
+//     if(n.size() != 0) {
+//         for(value_type p : n) {
+ 
+//             Cartesien c;
+//             p.convertir(c); //convertir en cartesien
+
+//             sumX += c.getX();
+//             sumY += c.getY();
+//         }
+//         //calcul barycentre cartesien
+//         sumX = sumX/n.size();
+//         sumY = sumY/n.size(); 
+//     }
+//     return value_type(Cartesien(sumX, sumY));
+// }
+
+template <typename Container>
+auto barycentre_v2(const Container & n) {
+
+    using polaire_or_cartesien = typename Container::value_type;
+    //using polaire_or_cartesien = typename Nuage<Cartesien>::value_type;
+    //using polaire_or_cartesien = typename Nuage<Cartesien>::typename std::vector<point_type>::value_type;;
+
     double sumX = 0, sumY = 0;
+
     if(n.size() != 0) {
-        for(Point p : n) {
+        for(polaire_or_cartesien p : n) {
  
             Cartesien c;
             p.convertir(c); //convertir en cartesien
@@ -100,6 +129,6 @@ Point barycentre_v2(const Container<Point> & n) {
         sumX = sumX/n.size();
         sumY = sumY/n.size(); 
     }
-    return Point(Cartesien(sumX, sumY));
+    return polaire_or_cartesien(Cartesien(sumX, sumY));
 }
 
