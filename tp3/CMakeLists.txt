@@ -40,7 +40,7 @@ message ( STATUS "Compiler flags: ${CMAKE_CXX_FLAGS}" )
 
 # Sources #-----------------------------------------------------------------------------------------
 set ( ZZ3_HEADERS
-      #src/chaine.hpp
+      src/chaine.hpp
       #src/cosinus.hpp
       src/demangle.hpp
       #src/exception.hpp
