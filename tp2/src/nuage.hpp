@@ -121,8 +121,11 @@ template <typename Container>
 auto barycentre_v2(const Container & n) {
 
     using polaire_or_cartesien = typename Container::value_type;
+
     //using polaire_or_cartesien = typename Nuage<Cartesien>::value_type;
-    //using polaire_or_cartesien = typename Nuage<Cartesien>::typename std::vector<point_type>::value_type;;
+    //using polaire_or_cartesien = typename Nuage<Cartesien>::typename std::vector<point_type>::value_type;
+
+    ////using polaire_or_cartesien = typename std::vector<Polaire>::value_type;
 
     double sumX = 0, sumY = 0;
 
