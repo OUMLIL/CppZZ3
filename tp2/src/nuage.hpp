@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <typeinfo>
+#include "cartesien.hpp"
+#include "polaire.hpp"
 
 template <typename T>
 class Nuage {
@@ -26,12 +28,12 @@ class Nuage {
 
 template <typename T>
 typename Nuage<T>::const_iterator Nuage<T>::begin() const {
-    return _nuage.begin();
+    return const_iterator(_nuage.begin());
 }
 
 template <typename T>
 typename Nuage<T>::const_iterator Nuage<T>::end() const {
-    return _nuage.end();
+    return const_iterator(_nuage.end());
 }
 
 template <typename T>
@@ -56,6 +58,14 @@ T barycentre_v1(const Nuage<T> & n) {
 
             sumX += c.getX();
             sumY += c.getY();
+
+            // if(typeid(p) == typeid(Cartesien)) {
+            //     sumX += p.getX();
+            //     sumY += p.getY();
+            // } else if(typeid(p) == typeid(Polaire)){
+            //     sumX += p.getAngle();
+            //     sumY += p.getDistance();
+            // }
         }
         //calcul barycentre cartesien
         sumX = sumX/n.size();
