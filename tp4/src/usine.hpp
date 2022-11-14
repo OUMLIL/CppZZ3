@@ -45,19 +45,20 @@ inline void remplir(paquet_t & paquet, UsineCarte & usine) {
 }
 
 inline std::ostream & operator<<(std::ostream & ss, paquet_t & paquet) {
-    std::cout << "size : "<< paquet.size() << std::endl;
+    //std::cout << "size : "<< paquet.size() << std::endl;
     if(paquet.size() == 0) {
         return ss;
     }
 
-    // std::stringstream tmp;
-    // std::transform(paquet.begin(), paquet.end(), std::ostream_iterator<std::unique_ptr<Carte>>(tmp, " "), 
-    //                 [](std::unique_ptr<Carte> & x) {return x->getValeur();});
-    // std::string tmp_string{tmp.str()};
-    // ss << tmp_string;
+    std::stringstream tmp;
+    std::transform(paquet.begin(), paquet.end(), 
+                    std::ostream_iterator<int>(tmp, " "), 
+                    [](std::unique_ptr<Carte> & x) {return x->getValeur();});
+    std::string tmp_string{tmp.str()};
+    ss << tmp_string;
 
-    for(auto & element : paquet) {
-        ss << element->getValeur() << " ";
-    }  
+    // for(auto & element : paquet) {
+    //     ss << element->getValeur() << " ";
+    // }  
     return ss;
 }
