@@ -7,8 +7,8 @@
 #include <carte.hpp>
 #include <usine.hpp>
 //#include <paquet.hpp>
-//#include <ressource.hpp>
-//#include <consommateur.hpp>
+#include <ressource.hpp>
+#include <consommateur.hpp>
 
 // Tests //-----------------------------------------------------------------------------------------
 
@@ -127,7 +127,7 @@ TEST_CASE ( "TP4_Carte::CarteDestruction" ) {
 }
 
 //------------------------------------------------------------------------------------------------ 8
-/*TEST_CASE ( "TP4_Conso::Ressource" ) {
+TEST_CASE ( "TP4_Conso::Ressource" ) {
  Ressource r(17);
 
  REQUIRE ( r.getStock() == 17 );
@@ -135,10 +135,11 @@ TEST_CASE ( "TP4_Carte::CarteDestruction" ) {
  r.consommer(6);
 
  REQUIRE ( r.getStock() == 11 );
-}*/
+}
+
 
 //------------------------------------------------------------------------------------------------ 9
-/*TEST_CASE ( "TP4_Conso::Consommateur" ) {
+TEST_CASE ( "TP4_Conso::Consommateur" ) {
  // std::shared_ptr<Ressource> r(new Ressource(17));
  auto r = std::make_shared<Ressource>(17);
  Consommateur c(3,r);
@@ -148,10 +149,10 @@ TEST_CASE ( "TP4_Carte::CarteDestruction" ) {
  c.puiser();
 
  REQUIRE ( r->getStock() == 14 );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 10
-/*TEST_CASE ( "TP4_Conso::RessoureEpuisee" ) {
+TEST_CASE ( "TP4_Conso::RessoureEpuisee" ) {
  // std::shared_ptr<Ressource> r(new Ressource(5));
  auto r = std::make_shared<Ressource>(5);
  Consommateur c(3,r);
@@ -168,7 +169,7 @@ TEST_CASE ( "TP4_Carte::CarteDestruction" ) {
 
  REQUIRE ( r->getStock() == 0 );
  REQUIRE ( r.use_count() == 1 );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 11
 /*TEST_CASE ( "TP4_Conso::SurveillanceRessources" ) {

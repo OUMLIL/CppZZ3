@@ -13,3 +13,15 @@
     ```cpp
         UsineCarte() {}
     ```
+- shared_ptr can't be initialized with nullptr ?
+    ```cpp
+        std::shared_ptr<Ressource> _rsrc_ptr{nullptr}; //OK
+        std::shared_ptr<Ressource> _rsrc_ptr(nullptr); //NOK
+
+        std::unique_ptr<Carte> p(nullptr); //OK?
+    ```
+- reset bug
+    ```cpp
+        rsrc_ptr.reste(nullptr); //NOK
+    ```
+    
