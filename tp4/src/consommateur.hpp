@@ -37,7 +37,7 @@ inline std::ostream & operator<<(std::ostream & ss, ressources_t ressources) {
     if(ressources.size() == 0) {
         return ss;
     }
-/*
+
     std::stringstream tmp;
     std::transform(ressources.begin(), ressources.end(), 
                     std::ostream_iterator<std::string>(tmp, " "), 
@@ -57,7 +57,7 @@ inline std::ostream & operator<<(std::ostream & ss, ressources_t ressources) {
                     });
     std::string tmp_string{tmp.str()};
     //std::cout << "result :" << tmp_string << std::endl;
-    ss << tmp_string;*/
+    ss << tmp_string;
 
     return ss;
 }
