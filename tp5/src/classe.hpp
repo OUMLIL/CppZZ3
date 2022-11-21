@@ -40,6 +40,11 @@ class Classe {
             _quantite++;
         }
 
+        friend bool operator<(const Classe & c1, const Classe & c2) {
+            return c1._borne_inf <= c2._borne_inf;
+        }
 
-
+        friend bool operator>(const Classe & c1, const Classe & c2) {
+            return c1._borne_inf >= c2._borne_inf;
+        }
 };
