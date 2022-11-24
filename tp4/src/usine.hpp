@@ -31,11 +31,12 @@ class UsineCarte {
             return _nb_cartes;
         }
 
-        UsineCarte(UsineCarte & inUsineCarte) = delete;
-        UsineCarte & operator=(UsineCarte & inUsineCarte) = delete;
+        UsineCarte(const UsineCarte &) = delete;
+        UsineCarte & operator=(const UsineCarte &) = delete;
 };
 
 using paquet_t = std::vector<std::unique_ptr<Carte>>;
+
 
 inline void remplir(paquet_t & paquet, UsineCarte & usine) {
 
@@ -44,7 +45,7 @@ inline void remplir(paquet_t & paquet, UsineCarte & usine) {
     }
 }
 
-inline std::ostream & operator<<(std::ostream & ss, paquet_t & paquet) {
+inline std::ostream & operator<<(std::ostream & ss, const paquet_t & paquet) {
     //std::cout << "size : "<< paquet.size() << std::endl;
     if(paquet.size() == 0) {
         return ss;

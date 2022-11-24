@@ -11,10 +11,10 @@ class Carte {
         Carte(int v): _valeur_carte(v) { //constructor using value
             _construction_deconstruction_counter++;
         }; 
-    public:
 
-        Carte(Carte & inCarte) = delete;
-        Carte & operator=(Carte & inCarte) = delete;
+    public:
+        Carte(const Carte & inCarte) = delete;
+        Carte & operator=(const Carte & inCarte) = delete;
 
         int getValeur() const {
             return _valeur_carte;
@@ -27,5 +27,6 @@ class Carte {
         ~Carte() {
             _construction_deconstruction_counter--;
         }
+
         friend class UsineCarte;
 };

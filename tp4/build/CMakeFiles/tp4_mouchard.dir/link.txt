@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/tp4_mouchard.dir/test/test_mouchard.cpp.o CMakeFiles/tp4_mouchard.dir/src/carte.cpp.o CMakeFiles/tp4_mouchard.dir/src/usine.cpp.o -o tp4_mouchard  -lstdc++ -lm 

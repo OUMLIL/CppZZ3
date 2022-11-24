@@ -222,7 +222,7 @@ TEST_CASE ( "TP4_Conso::SurveillanceRessources" ) {
 
   s << ressources;
 
-  //REQUIRE ( s.str() == etats[i] );
+  REQUIRE ( s.str() == etats[i] );
 
   for (unsigned j = 0; j<consommateurs.size(); ++j) consommateurs[j].puiser();
  }
