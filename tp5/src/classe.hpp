@@ -1,11 +1,13 @@
 #pragma once
 
+#include <iostream>
+#include <sstream>
 
 class Classe {
     private:
-        double _borne_inf;
-        double _borne_sup;
-        unsigned _quantite;
+        double _borne_inf{};
+        double _borne_sup{};
+        unsigned _quantite{};
     public:
         Classe(double inf, double sup):_borne_inf(inf), _borne_sup(sup) {
             _quantite = 0u;
@@ -41,10 +43,16 @@ class Classe {
         }
 
         friend bool operator<(const Classe & c1, const Classe & c2) {
-            return c1._borne_inf <= c2._borne_inf;
+            return c1._borne_inf < c2._borne_inf;
         }
 
         friend bool operator>(const Classe & c1, const Classe & c2) {
-            return c1._borne_inf >= c2._borne_inf;
+            return c1._borne_inf > c2._borne_inf;
+        }
+
+        void toString() const {
+            std::stringstream oss;
+            oss << "{" << _borne_inf << "," << _borne_sup << "}" << std::endl;
+            std::cout << oss.str();
         }
 };

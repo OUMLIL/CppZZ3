@@ -12,8 +12,10 @@ class valeurComp {
 
 class Echantillon {
     private:
-        std::vector<Valeur> _values;
+        std::vector<Valeur> _values{};
     public:
+        using value_type = std::vector<Valeur>::value_type;
+
         Echantillon() = default;
         size_t getTaille() {
             return _values.size();
@@ -21,6 +23,18 @@ class Echantillon {
 
         void ajouter(const Valeur & v) {
             _values.push_back(v);
+        }
+
+        void push_back(const Valeur & v) {
+            _values.push_back(v);
+        }
+
+        auto begin() {
+            return _values.begin();
+        }
+
+        auto end() {
+            return _values.end();
         }
 
         // need < operator on values

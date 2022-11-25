@@ -278,7 +278,7 @@ TEST_CASE ( "TP3_Histogramme::ComparateurQuantite" ) {
 }
 
 //------------------------------------------------------------------------------------------------17
-/*TEST_CASE ( "TP3_Histogramme::Conversion" ) {
+TEST_CASE ( "TP3_Histogramme::Conversion" ) {
  using histo1_t = Histogramme<std::greater<Classe>>;
  using histo2_t = Histogramme<ComparateurQuantite<Classe>>;
 
@@ -288,7 +288,7 @@ TEST_CASE ( "TP3_Histogramme::ComparateurQuantite" ) {
 
  for (unsigned i = 0; i<10; ++i) h1.ajouter(v[i]);
 
- histo2_t h2(h1);
+ histo2_t h2(h1); //
 
  double   bornesInf[] = { 5.0, 13.0, 7.0,  9.0, 11.0 };
  double   bornesSup[] = { 7.0, 15.0, 9.0, 11.0, 13.0 };
@@ -305,10 +305,11 @@ TEST_CASE ( "TP3_Histogramme::ComparateurQuantite" ) {
   REQUIRE ( c.getQuantite() == quantites[i] );
   ++i;
  }
-}*/
+
+}
 
 //----------------------------------------------------------------------------------------------- 18
-/*TEST_CASE ( "TP3_Etudiant::Constructeur" ) {
+TEST_CASE ( "TP3_Etudiant::Constructeur" ) {
  const double a = 12.0;
  const char * n = "Machin";
 
@@ -318,19 +319,19 @@ TEST_CASE ( "TP3_Histogramme::ComparateurQuantite" ) {
  REQUIRE ( v.getNote() == Approx(a) );
  REQUIRE ( v.getEtudiant().c_str() != 0);
  REQUIRE ( v.getEtudiant() == n );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 19
-/*TEST_CASE ( "TP3_Etudiant::ConstructeurDefaut" ) {
+TEST_CASE ( "TP3_Etudiant::ConstructeurDefaut" ) {
  Valeur v;
 
  REQUIRE ( v.getNombre() == Approx(0.0) );
  REQUIRE ( v.getNote() == Approx(0.0) );
  REQUIRE ( v.getEtudiant() == "inconnu" );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 20
-/*TEST_CASE ( "TP3_Etudiant::Accesseurs" ) {
+TEST_CASE ( "TP3_Etudiant::Accesseurs" ) {
  const double a = 12.0;
  const char * n = "Machin";
 
@@ -342,19 +343,19 @@ TEST_CASE ( "TP3_Histogramme::ComparateurQuantite" ) {
  REQUIRE ( v.getNombre() == Approx(a) );
  REQUIRE ( v.getNote() == Approx(a) );
  REQUIRE ( v.getEtudiant() == n );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 21
-/*TEST_CASE ( "TP3_Etudiant::AccesseursConstants" ) {
+TEST_CASE ( "TP3_Etudiant::AccesseursConstants" ) {
  const Valeur v;
 
  REQUIRE ( v.getNombre() == Approx(0.0) );
  REQUIRE ( v.getNote() == Approx(0.0) );
  REQUIRE ( v.getEtudiant() == "inconnu" );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 22
-/*TEST_CASE ( "TP3_Valeurs::Association" ) {
+TEST_CASE ( "TP3_Valeurs::Association" ) {
  using histo_t = Histogramme<>;
 
  double v[] = { 7.0, 9.0, 8.0, 5.0, 10.0, 14.0, 13.0, 6.0, 5.5, 13.5 };
@@ -372,16 +373,16 @@ TEST_CASE ( "TP3_Histogramme::ComparateurQuantite" ) {
 
  unsigned i = 0;
 
- for (const std::pair<Classe,Valeur> & p : h.getValeurs()) {
+ for (const std::pair<const Classe,Valeur> & p : h.getValeurs()) {
   REQUIRE ( p.first.getBorneInf() == Approx(bornesInf[i]) );
   REQUIRE ( p.first.getBorneSup() == Approx(bornesSup[i]) );
   REQUIRE ( p.second.getNote() == Approx(notes[i]) );
   ++i;
  }
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 23
-/*TEST_CASE ( "TP3_Valeurs::Intervalle" ) {
+TEST_CASE ( "TP3_Valeurs::Intervalle" ) {
  using histo_t = Histogramme<>;
 
  double v[] = { 7.0, 9.0, 8.0, 5.0, 10.0, 14.0, 13.0, 6.0, 5.5, 13.5 };
@@ -416,6 +417,6 @@ TEST_CASE ( "TP3_Histogramme::ComparateurQuantite" ) {
 
   ++i;
  }
-}*/
+}
 
 // Fin //-------------------------------------------------------------------------------------------

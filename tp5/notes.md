@@ -20,3 +20,12 @@ break filename:line
 ```
 
 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
+
+
+## other:
+```cpp
+//! comparison object must be invocable as const
+        bool operator()(const TypeToCompare & c1, const TypeToCompare & c2) const {
+            return c1.getQuantite() < c2.getQuantite();
+        }
+```
